@@ -7,7 +7,7 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       apache2-utils \
  && rm -rf /var/lib/apt/lists/* \
- && htpasswd -b /etc/nginx/.htpasswd admin admin
+ && htpasswd -bc /etc/nginx/.htpasswd admin admin
  
 # Copy the modified Nginx conf
 COPY nginx.conf /etc/nginx
