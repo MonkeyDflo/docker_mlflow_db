@@ -7,8 +7,8 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       apache2-utils \
  && rm -rf /var/lib/apt/lists/* \
- && htpasswd -c /etc/nginx/.htpasswd test
-RUN htpasswd -b /etc/nginx/.htpasswd admin admin
+ && htpasswd -c /etc/nginx/.htpasswd admin
+RUN htpasswd -b /etc/nginx/.htpasswd admin ${MLFLOW_ADMIN_PASSWORD}
 
 # Copy the modified Nginx conf
 COPY nginx.conf /etc/nginx
